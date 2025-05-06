@@ -1,24 +1,6 @@
 "use strict";
 
-const formBtn = document.getElementById("insertBtn");
-
-function displayButtons() {
-  let btnContainer = document.getElementById("btnContainer");
-
-  let verifyAllItems = document.createElement("button");
-  verifyAllItems.classList.add("verifyAllBtn");
-  verifyAllItems.textContent = "✅ Verify All";
-  btnContainer.appendChild(verifyAllItems);
-
-  let removeAllItems = document.createElement("button");
-  removeAllItems.classList.add("removeAllBtn");
-  removeAllItems.textContent = "❌ Remove All";
-  btnContainer.appendChild(removeAllItems);
-}
-if (localStorage.length > 0) {
-  displayButtons();
-}
-
+// ADICIONA OS INPUTS NO LOCAL STORAGE E EXIBE-OS NA TELA
 function addString() {
   let inputString = document.getElementById("inputStr");
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
@@ -28,6 +10,7 @@ function addString() {
   inputString.value = "";
 }
 
+// CRIA A EXIBIÇÃO DA LISTA DE INPUTS COMO FORAM DIGITADOS
 function displayStrings() {
   let stringList = document.getElementById("strList");
   stringList.innerHTML = "";
@@ -60,11 +43,47 @@ function displayStrings() {
   });
 }
 
+// EXIBE BOTOES PARA VERIFICAR TUDOS INPUTS E PARA REMOVER TUDOS INPUTS
+function displayButtons() {
+  let btnContainer = document.getElementById("btnContainer");
+
+  let verifyAllItems = document.createElement("button");
+  verifyAllItems.classList.add("verifyAllBtn");
+  verifyAllItems.textContent = "✅ Verify All";
+  btnContainer.appendChild(verifyAllItems);
+
+  let removeAllItems = document.createElement("button");
+  removeAllItems.classList.add("removeAllBtn");
+  removeAllItems.textContent = "❌ Remove All";
+  btnContainer.appendChild(removeAllItems);
+
+  removeAll();
+}
+
+// SOLUÇÃO PARA EXIBIR OS BOTÕES VERIFYALLITEMS E REMOVEALLITEMS
+// SOMENTE QUANDO HOUVER PELO MENOS UM ITEM NO LOCAL STORAGE
+let insertBtn = document.getElementById("insertBtn");
+let displayed = false;
+insertBtn.addEventListener("click", () => {
+  if (!displayed) {
+    displayButtons();
+    displayed = true;
+  }
+});
+
+// LIMPA O LOCAL STORAGE
+function removeAllItems() {
+  localStorage.clear();
+  location.reload();
+}
+function removeAll() {
+  document
+    .querySelector(".removeAllBtn")
+    .addEventListener("click", removeAllItems);
+}
+function verifyAll() {}
+
 function verifyItem() {}
 function removeItem() {}
-
-// formBtn.addEventListener("click", (event) => {
-//   event.preventDefault();
-// });
 
 displayStrings();

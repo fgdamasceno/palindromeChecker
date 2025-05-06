@@ -30,7 +30,8 @@ body {
 }
 
 .inputStr,
-.insertBtn {
+.insertBtn,
+.btn {
   padding: 0.4rem;
 }
 
