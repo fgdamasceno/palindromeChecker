@@ -1,89 +1,76 @@
 "use strict";
 
-// ADICIONA OS INPUTS NO LOCAL STORAGE E EXIBE-OS NA TELA
+const inputStr = document.querySelector("#inputString");
+const addStringBtn = document.querySelector("#addString");
+const actionBtns = document.querySelector(".actionButtonsContainer");
+const checkAllBtn = document.querySelector("#verifyAll");
+const removeAllBtn = document.querySelector("#removeAll");
+const listItems = document.querySelector("#listItems");
+
+// Hide the 'Check All' and 'Remove All' buttons
+document.querySelector(".actionButtonsContainer").classList.add("hidden");
+
 function addString() {
-  let inputString = document.getElementById("inputStr");
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
-  strings.push(inputString.value);
-  localStorage.setItem("strings", JSON.stringify(strings));
+  if (inputStr.value !== "") {
+    strings.push(inputStr.value);
+    localStorage.setItem("strings", JSON.stringify(strings));
+  } else {
+    alert("Insert a word or a sentence to continue!");
+  }
   displayStrings();
-  inputString.value = "";
+  inputStr.value = "";
 }
 
-// CRIA A EXIBIÇÃO DA LISTA DE INPUTS COMO FORAM DIGITADOS
 function displayStrings() {
-  let stringList = document.getElementById("strList");
-  stringList.innerHTML = "";
+  listItems.innerHTML = "";
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
 
   strings.forEach((str, index) => {
-    // GERA UM ITEM DE LISTA
     let li = document.createElement("li");
-    li.textContent = `${str}`;
-    stringList.appendChild(li);
+    li.classList.add("listItem");
 
-    // DIV PARA COMPORTAR BOTÃO VERIFICAR E EXCLUIR
-    let buttonDiv = document.createElement("div");
-    buttonDiv.classList.add("listBtnContainer");
-    stringList.appendChild(buttonDiv);
+    let span = document.createElement("span");
+    span.textContent = `${str}`;
 
-    // GERA O BOTAO VERIFICAR
-    let verifyBtn = document.createElement("button");
-    verifyBtn.classList.add("btn");
-    verifyBtn.onclick = verifyItem(`${index}`);
-    verifyBtn.textContent = "✅";
-    buttonDiv.appendChild(verifyBtn);
+    let div = document.createElement("div");
+    div.id = "listButtons";
+    div.classList.add("listButtons");
 
-    // GERA O BOTAO REMOVER
-    let removeBtn = document.createElement("button");
-    removeBtn.classList.add("btn");
-    removeBtn.onclick = removeItem(`${index}`);
-    removeBtn.textContent = "❌";
-    buttonDiv.appendChild(removeBtn);
+    let buttonVerify = document.createElement("button");
+    buttonVerify.id = "verifyItem";
+    buttonVerify.classList.add("verify");
+    buttonVerify.onclick = verifyString(index);
+    buttonVerify.textContent = "✅";
+
+    let buttonRemove = document.createElement("button");
+    buttonRemove.id = "removeItem";
+    buttonRemove.classList.add("remove");
+    buttonRemove.onclick = verifyString(index);
+    buttonRemove.textContent = "❌";
+
+    let hr = document.createElement("hr");
+
+    div.appendChild(buttonVerify);
+    div.appendChild(buttonRemove);
+    listItems.appendChild(li);
+    li.appendChild(span);
+    li.appendChild(div);
+    listItems.appendChild(hr);
   });
-}
 
-// EXIBE BOTOES PARA VERIFICAR TUDOS INPUTS E PARA REMOVER TUDOS INPUTS
-function displayButtons() {
-  let btnContainer = document.getElementById("btnContainer");
-
-  let verifyAllItems = document.createElement("button");
-  verifyAllItems.classList.add("verifyAllBtn");
-  verifyAllItems.textContent = "✅ Verify All";
-  btnContainer.appendChild(verifyAllItems);
-
-  let removeAllItems = document.createElement("button");
-  removeAllItems.classList.add("removeAllBtn");
-  removeAllItems.textContent = "❌ Remove All";
-  btnContainer.appendChild(removeAllItems);
-
-  removeAll();
-}
-
-// SOLUÇÃO PARA EXIBIR OS BOTÕES VERIFYALLITEMS E REMOVEALLITEMS
-// SOMENTE QUANDO HOUVER PELO MENOS UM ITEM NO LOCAL STORAGE
-let insertBtn = document.getElementById("insertBtn");
-let displayed = false;
-insertBtn.addEventListener("click", () => {
-  if (!displayed) {
-    displayButtons();
-    displayed = true;
+  if (strings.length > 0) {
+    actionBtns.classList.remove("hidden");
   }
-});
+}
 
-// LIMPA O LOCAL STORAGE
-function removeAllItems() {
+function removeAllStrings() {
   localStorage.clear();
   location.reload();
 }
-function removeAll() {
-  document
-    .querySelector(".removeAllBtn")
-    .addEventListener("click", removeAllItems);
-}
-function verifyAll() {}
 
-function verifyItem() {}
-function removeItem() {}
+function verifyString(index) {}
+function removeString(index) {}
+function verifyAllStrings() {}
 
 displayStrings();

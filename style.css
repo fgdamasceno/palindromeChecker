@@ -5,47 +5,109 @@
 }
 
 body {
-  padding: 0.5rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
 }
 
 .title {
-  margin: 30px 0 30px 0;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
-.title,
-.inputLabel {
+.inputSection,
+.actionButtonsSection,
+.listSection {
+  width: 90%;
+  margin: auto;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.actionButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-top: 30px;
+}
+
+.addString {
+  border: 0;
+  border-radius: 10px;
+  background-color: aqua;
+}
+
+.verifyAll,
+.removeAll {
+  width: 48%;
+  height: 40px;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+}
+
+.verifyAll {
+  background-color: green;
+}
+
+.removeAll {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+label {
   text-align: center;
 }
 
-.mainForm {
+label,
+input,
+button {
+  padding: 8px;
+}
+
+.listContainer {
+  margin-top: 30px;
+}
+
+.listItem {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-
-  width: 90%;
-  margin: auto;
-  padding: 0.8rem;
-  font-size: 1.2rem;
+  justify-content: space-between;
 }
 
-.inputStr,
-.insertBtn,
-.btn {
-  padding: 0.4rem;
+.verify,
+.remove {
+  height: min-content;
+  width: min-content;
+  padding: 4px;
 }
 
-.btnContainer {
+.verify {
+  margin-right: 5px;
+}
+
+.listButtons {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 90%;
-  margin: auto;
-  padding: 0.8rem;
-  font-size: 1.2rem;
+  justify-content: center;
+  align-items: end;
 }
 
-.verifyAllBtn,
-.removeAllBtn {
-  padding: 0.4rem;
+hr {
+  margin: 3px 0 3px 0;
 }

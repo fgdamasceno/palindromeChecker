@@ -3,37 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Palindrome Checker</title>
   </head>
+
   <body>
     <h1 class="title">Palindrome Checker</h1>
 
-    <section class="main">
-      <div class="mainForm">
-        <label class="inputLabel" for="string"
-          >Insert a word or sentence to be tested:</label
-        >
+    <section class="inputSection">
+      <div class="inputContainer">
+        <label for="inputString">Insert a word or sentence to be tested</label>
         <input
           type="text"
-          name="string"
-          id="inputStr"
-          class="inputStr"
-          placeholder="Ex.: Racecar"
+          name="inputString"
+          id="inputString"
+          placeholder="Ex: Racecar"
           autofocus
         />
-        <button class="insertBtn" id="insertBtn" onclick="addString()">
+        <button id="addString" class="addString" onclick="addString()">
           ➕ Add
         </button>
       </div>
     </section>
 
-    <section class="buttonContainer">
-      <div class="btnContainer" id="btnContainer"></div>
+    <section class="actionButtonsSection">
+      <div class="actionButtonsContainer">
+        <button id="verifyAll" class="verifyAll" onclick="verifyAllStrings()">
+          Check All
+        </button>
+        <button id="removeAll" class="removeAll" onclick="removeAllStrings()">
+          Remove All
+        </button>
+      </div>
     </section>
 
-    <section class="list">
-      <ul id="strList" class="strList"></ul>
+    <section class="listSection">
+      <div class="listContainer">
+        <ul id="listItems"></ul>
+      </div>
     </section>
 
     <script src="script.js"></script>
