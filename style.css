@@ -53,11 +53,23 @@ body {
 }
 
 .verifyAll {
-  background-color: green;
+  background-color: #008000;
+}
+.verifyAll:hover {
+  background-color: #006000;
+}
+.verifyAll:active {
+  background-color: #408040;
 }
 
 .removeAll {
-  background-color: red;
+  background-color: #ff0000;
+}
+.removeAll:hover {
+  background-color: #ff5a5a;
+}
+.removeAll:active {
+  background-color: #b40000;
 }
 
 .hidden {
@@ -65,11 +77,14 @@ body {
 }
 
 .green {
-  background-color: green;
+  color: green;
+  font-weight: bold;
 }
 
 .red {
-  background-color: red;
+  color: red;
+  font-style: italic;
+  text-decoration: line-through;
 }
 
 label {
@@ -80,6 +95,10 @@ label,
 input,
 button {
   padding: 8px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .listContainer {

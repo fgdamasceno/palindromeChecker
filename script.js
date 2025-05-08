@@ -8,7 +8,7 @@ const removeAllBtn = document.querySelector("#removeAll");
 const listItems = document.querySelector("#listItems");
 
 // Hide the 'Check All' and 'Remove All' buttons
-document.querySelector(".actionButtonsContainer").classList.add("hidden");
+actionBtns.classList.add("hidden");
 
 function addString() {
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
@@ -80,7 +80,33 @@ function removeString(index) {
   }
 }
 
+function verifyAllStrings() {
+  let strings = JSON.parse(localStorage.getItem("strings"));
+  let el = document.getElementsByTagName("span");
+  strings.forEach((str, index) => {
+    if (checkPalindrome(str)) {
+      el[index].classList.add("green");
+    } else {
+      el[index].classList.add("red");
+    }
+  });
+}
+
 function verifyString(index) {}
-function verifyAllStrings() {}
+
+function cleanString(str) {
+  const regex = /[\s|,.;/\/<>:?[\]{}'"!@#$%&*()/\-_=+]/g;
+  return str.trim().replace(regex, "").toLowerCase();
+}
+
+function reverseString(str) {
+  return cleanString(str).split("").reverse().join("");
+}
+
+function checkPalindrome(str) {
+  let cleanStr = cleanString(str);
+  let reverseStr = reverseString(str);
+  return cleanStr === reverseStr ? true : false;
+}
 
 displayStrings();
