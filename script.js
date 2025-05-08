@@ -40,13 +40,13 @@ function displayStrings() {
     let buttonVerify = document.createElement("button");
     buttonVerify.id = "verifyItem";
     buttonVerify.classList.add("verify");
-    buttonVerify.onclick = verifyString(index);
+    buttonVerify.onclick = () => verifyString(index);
     buttonVerify.textContent = "✅";
 
     let buttonRemove = document.createElement("button");
     buttonRemove.id = "removeItem";
     buttonRemove.classList.add("remove");
-    buttonRemove.onclick = verifyString(index);
+    buttonRemove.onclick = () => removeString(index);
     buttonRemove.textContent = "❌";
 
     let hr = document.createElement("hr");
@@ -69,8 +69,18 @@ function removeAllStrings() {
   location.reload();
 }
 
+function removeString(index) {
+  let strings = JSON.parse(localStorage.getItem("strings"));
+  strings.splice(index, 1);
+  localStorage.setItem("strings", JSON.stringify(strings));
+  displayStrings();
+  if (strings.length < 1) {
+    actionBtns.classList.remove("hidden");
+    location.reload();
+  }
+}
+
 function verifyString(index) {}
-function removeString(index) {}
 function verifyAllStrings() {}
 
 displayStrings();
