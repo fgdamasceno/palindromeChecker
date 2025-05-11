@@ -100,7 +100,6 @@ function verifyString(index) {
   } else {
     spanEl[index].classList.add("red");
   }
-  console.log(strings[index]);
 }
 
 function cleanString(str) {
