@@ -1,10 +1,7 @@
 "use strict";
 
 const inputStr = document.querySelector("#inputString");
-const addStringBtn = document.querySelector("#addString");
 const actionBtns = document.querySelector("#actionButtonsContainer");
-const checkAllBtn = document.querySelector("#verifyAll");
-const removeAllBtn = document.querySelector("#removeAll");
 const listItems = document.querySelector("#listItems");
 
 // Hide the 'Check All' and 'Remove All' buttons
@@ -40,29 +37,23 @@ function displayStrings() {
     span.textContent = `${str}`;
 
     let div = document.createElement("div");
-    div.classList.add("listButtons", "btn-group", "d-flex", "align-items-end");
-    div.id = "listButtons";
+    div.classList.add("btn-group", "d-flex", "align-items-end");
 
     let buttonVerify = document.createElement("button");
-    buttonVerify.id = "verifyItem";
     buttonVerify.classList.add("btn", "btn-success", "px-3", "py-2", "verify");
     buttonVerify.onclick = () => verifyString(index);
     buttonVerify.innerHTML = '<i class="bi bi-check2-square"></i>';
 
     let buttonRemove = document.createElement("button");
-    buttonRemove.id = "removeItem";
     buttonRemove.classList.add("btn", "btn-danger", "px-3", "py-2", "remove");
     buttonRemove.onclick = () => removeString(index);
     buttonRemove.innerHTML = '<i class="bi bi-trash3"></i>';
-
-    // let hr = document.createElement("hr");
 
     div.appendChild(buttonVerify);
     div.appendChild(buttonRemove);
     listItems.appendChild(li);
     li.appendChild(span);
     li.appendChild(div);
-    // listItems.appendChild(hr);
   });
 
   if (strings.length > 0) {
