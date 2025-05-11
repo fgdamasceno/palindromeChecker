@@ -7,6 +7,7 @@ Este é um simples verificador de palíndromos web. Permite que você insira pal
 ## Demonstração
 
 ![Captura de tela do Palindrome Checker](./screenshots/iPhone-12-PRO.png)
+![Captura de tela do Palindrome Checker](./screenshots/Macbook-Air.png)
 
 <!-- ![Captura de tela do Palindrome Checker](./screenshots/Galaxy-S21-Ultra.png) -->
 
