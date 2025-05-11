@@ -2,7 +2,7 @@
 
 const inputStr = document.querySelector("#inputString");
 const addStringBtn = document.querySelector("#addString");
-const actionBtns = document.querySelector(".actionButtonsContainer");
+const actionBtns = document.querySelector("#actionButtonsContainer");
 const checkAllBtn = document.querySelector("#verifyAll");
 const removeAllBtn = document.querySelector("#removeAll");
 const listItems = document.querySelector("#listItems");
@@ -28,35 +28,41 @@ function displayStrings() {
 
   strings.forEach((str, index) => {
     let li = document.createElement("li");
-    li.classList.add("listItem");
+    li.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "gap-1"
+    );
 
     let span = document.createElement("span");
+    span.classList.add("d-flex", "align-items-center");
     span.textContent = `${str}`;
 
     let div = document.createElement("div");
+    div.classList.add("listButtons", "btn-group", "d-flex", "align-items-end");
     div.id = "listButtons";
-    div.classList.add("listButtons");
 
     let buttonVerify = document.createElement("button");
     buttonVerify.id = "verifyItem";
-    buttonVerify.classList.add("verify");
+    buttonVerify.classList.add("btn", "btn-success", "px-3", "py-2", "verify");
     buttonVerify.onclick = () => verifyString(index);
-    buttonVerify.textContent = "✅";
+    buttonVerify.innerHTML = '<i class="bi bi-check2-square"></i>';
 
     let buttonRemove = document.createElement("button");
     buttonRemove.id = "removeItem";
-    buttonRemove.classList.add("remove");
+    buttonRemove.classList.add("btn", "btn-danger", "px-3", "py-2", "remove");
     buttonRemove.onclick = () => removeString(index);
-    buttonRemove.textContent = "❌";
+    buttonRemove.innerHTML = '<i class="bi bi-trash3"></i>';
 
-    let hr = document.createElement("hr");
+    // let hr = document.createElement("hr");
 
     div.appendChild(buttonVerify);
     div.appendChild(buttonRemove);
     listItems.appendChild(li);
     li.appendChild(span);
     li.appendChild(div);
-    listItems.appendChild(hr);
+    // listItems.appendChild(hr);
   });
 
   if (strings.length > 0) {
