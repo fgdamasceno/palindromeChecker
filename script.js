@@ -82,20 +82,30 @@ function removeString(index) {
 
 function verifyAllStrings() {
   let strings = JSON.parse(localStorage.getItem("strings"));
-  let el = document.getElementsByTagName("span");
+  let spanEl = document.getElementsByTagName("span");
   strings.forEach((str, index) => {
     if (checkPalindrome(str)) {
-      el[index].classList.add("green");
+      spanEl[index].classList.add("green");
     } else {
-      el[index].classList.add("red");
+      spanEl[index].classList.add("red");
     }
   });
 }
 
-function verifyString(index) {}
+function verifyString(index) {
+  let strings = JSON.parse(localStorage.getItem("strings"));
+  let spanEl = document.getElementsByTagName("span");
+  if (checkPalindrome(strings[index])) {
+    spanEl[index].classList.add("green");
+  } else {
+    spanEl[index].classList.add("red");
+  }
+  console.log(strings[index]);
+}
 
 function cleanString(str) {
-  const regex = /[\s|,.;/\/<>:?[\]{}'"!@#$%&*()/\-_=+]/g;
+  const regex =
+    /[\s|,.;/\/<>:?[\]{}'"!@#$%&*()/\-_–=+\u00C2\u00EA\u00EE\u00F4\u00FB]/g;
   return str.trim().replace(regex, "").toLowerCase();
 }
 
