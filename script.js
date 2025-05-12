@@ -3,9 +3,58 @@
 const inputStr = document.querySelector("#inputString");
 const actionBtns = document.querySelector("#actionButtonsContainer");
 const listItems = document.querySelector("#listItems");
+const htmlEl = document.querySelector("html");
+const darkLightButton = document.querySelector("#darkLightBtn");
+const langSwapBtn = document.querySelector("#langSwapBtn");
+const title = document.querySelector("#title");
+const inputLabel = document.querySelector("#inputLabel");
+const addStringBtn = document.querySelector("#addString");
+const verifyAllBtn = document.querySelector("#verifyAll");
+const removeAllBtn = document.querySelector("#removeAll");
 
 // Hide the 'Check All' and 'Remove All' buttons
 actionBtns.classList.add("hidden");
+
+function darkLightMode() {
+  darkLightButton.addEventListener("click", () => {
+    htmlEl.setAttribute(
+      "data-bs-theme",
+      htmlEl.getAttribute("data-bs-theme") === "light" ? "dark" : "light"
+    );
+    darkLightButton.innerHTML =
+      htmlEl.getAttribute("data-bs-theme") === "light"
+        ? '<i class="bi bi-moon-stars"></i>'
+        : '<i class="bi bi-brightness-high"></i>';
+  });
+}
+
+function resetLang() {
+  htmlEl.setAttribute("lang", "en");
+  langSwapBtn.textContent = "PT";
+  title.textContent = "Palindrome Checker";
+  inputLabel.textContent = "Insert a word or sentence to be tested";
+  addStringBtn.innerHTML = '<i class="bi bi-plus-square"></i> Add';
+  verifyAllBtn.innerHTML = '<i class="bi bi-check2-square"></i> Check All';
+  removeAllBtn.innerHTML = '<i class="bi bi-trash3"></i> Remove All';
+}
+
+function swapLanguage() {
+  langSwapBtn.addEventListener("click", () => {
+    if (htmlEl.getAttribute("lang") === "en") {
+      htmlEl.setAttribute("lang", "pt-BR");
+      langSwapBtn.textContent = "EN";
+      title.textContent = "Verificador de Palíndromo";
+      inputLabel.textContent = "Insira uma palavra ou frase a ser testada";
+      addStringBtn.innerHTML = '<i class="bi bi-plus-square"></i> Adicionar';
+      verifyAllBtn.innerHTML =
+        '<i class="bi bi-check2-square"></i> Verificar Tudo';
+      removeAllBtn.innerHTML = '<i class="bi bi-trash3"></i> Remover Tudo';
+    } else {
+      resetLang();
+    }
+  });
+  return;
+}
 
 function addString() {
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
@@ -115,4 +164,6 @@ function checkPalindrome(str) {
   return cleanStr === reverseStr ? true : false;
 }
 
+darkLightMode();
+swapLanguage();
 displayStrings();
