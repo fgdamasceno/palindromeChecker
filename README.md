@@ -64,7 +64,6 @@ Fernando G. Damasceno
 
 Este projeto está sob a licença [Especificar a Licença, se houver]. -->
 
-<!-- ![Captura de tela do Palindrome Checker](./screenshots/iPhone-12-PRO.png)
-![Captura de tela do Palindrome Checker](./screenshots/Macbook-Air.png) -->
-<img src="./screenshots/iPhone-12-PRO.png" width="200">
-<img src="./screenshots/Macbook-Air.png" width="600">
+![Captura de tela do Palindrome Checker](./screenshots/iPhone-12-PRO.png)
+![Captura de tela do Palindrome Checker](./screenshots/Macbook-Air.png)
+
