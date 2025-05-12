@@ -1,70 +1,68 @@
 # Palindrome Checker
 
-## Descrição
+![Badge de Linguagem](https://img.shields.io/badge/HTML-5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Badge de Linguagem](https://img.shields.io/badge/CSS-3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Badge de Linguagem](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Badge de Framework](https://img.shields.io/badge/Bootstrap-5.3.x-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-Este é um simples verificador de palíndromos web. Permite que você insira palavras ou frases, adicione-as a uma lista e verifique se cada item é um palíndromo (uma palavra, frase ou sequência que permanece a mesma quando lida de trás para frente). Os resultados são exibidos visualmente na lista, indicando se cada item é ou não um palíndromo. Além disso, oferece a funcionalidade de verificar todos os itens da lista de uma só vez e de remover itens individualmente ou a lista inteira. Os dados são persistidos localmente no navegador, o que significa que a lista de palavras/frases permanece mesmo após o fechamento da página.
+## Descrição do Projeto
 
-## Demonstração
+O Palindrome Checker é uma aplicação web simples que permite aos usuários inserir palavras ou frases e verificar se elas são palíndromos. Um palíndromo é uma palavra, frase, número ou outra sequência de caracteres que se lê da mesma forma para trás e para frente, ignorando pontuação, espaços e capitalização.
 
-![Captura de tela do Palindrome Checker](./screenshots/iPhone-12-PRO.png)
-![Captura de tela do Palindrome Checker](./screenshots/Macbook-Air.png)
+Este projeto utiliza HTML para a estrutura da página, CSS para a estilização básica e o framework Bootstrap para responsividade e componentes visuais. O JavaScript é responsável pela interatividade, lógica de verificação e persistência dos dados utilizando o `localStorage` do navegador.
 
-<!-- ![Captura de tela do Palindrome Checker](./screenshots/Galaxy-S21-Ultra.png) -->
+## Funcionalidades Principais
 
-## Como Começar
+- **Adicionar Palavras/Frases:** Permite ao usuário inserir palavras ou frases através de um campo de texto e adicioná-las a uma lista.
+- **Listagem de Entradas:** Exibe as palavras/frases adicionadas em uma lista organizada.
+- **Verificação Individual:** Cada item da lista possui um botão para verificar se a palavra/frase correspondente é um palíndromo, com o resultado sendo indicado visualmente (verde para palíndromo, vermelho para não palíndromo).
+- **Verificação em Massa:** Um botão "Check All" permite verificar todos os itens da lista de uma só vez.
+- **Remoção Individual:** Cada item da lista possui um botão para remover a palavra/frase correspondente.
+- **Remoção em Massa:** Um botão "Remove All" permite limpar toda a lista de palavras/frases.
+- **Persistência de Dados:** A lista de palavras/frases é armazenada no `localStorage` do navegador, o que significa que os dados persistem mesmo após o fechamento da página.
 
-Para usar o Palindrome Checker localmente:
+## Tecnologias Utilizadas
 
-1.  **Clone ou baixe este repositório:** Se você tiver o projeto em um repositório, clone-o para sua máquina local. Caso contrário, salve os arquivos `index.html`, `style.css` e `script.js` no mesmo diretório.
-2.  **Abra o arquivo `index.html` no seu navegador web.**
+- **HTML5:** Linguagem de marcação para a estrutura da página web.
+- **CSS3:** Folha de estilos para a apresentação visual da página.
+- **JavaScript (ES6+):** Linguagem de programação para a interatividade e lógica da aplicação.
+- **Bootstrap 5.3.x:** Framework CSS para facilitar a criação de layouts responsivos e fornecer componentes de interface de usuário pré-estilizados.
+- **Bootstrap Icons:** Biblioteca de ícones vetoriais utilizada para enriquecer os botões e a interface.
 
-### Utilizando o Verificador
+## Como Usar
 
-1.  **Inserir texto:** Digite a palavra ou frase que você deseja verificar no campo de texto com o rótulo "Insert a word or sentence to be tested".
-2.  **Adicionar à lista:** Clique no botão "➕ Add". A palavra ou frase inserida será adicionada à lista abaixo.
-3.  **Verificar individualmente (funcionalidade futura):** _(Com base no código, esta funcionalidade está implementada com os botões "✅" ao lado de cada item)_ Clique no botão "✅" ao lado de um item na lista para verificar se ele é um palíndromo. O item será destacado em verde se for um palíndromo e em vermelho (com tachado) caso contrário.
-4.  **Verificar todos:** Clique no botão "Check All" para verificar todos os itens da lista de uma vez.
-5.  **Remover individualmente:** Clique no botão "❌" ao lado de um item na lista para removê-lo.
-6.  **Remover todos:** Clique no botão "Remove All" para limpar toda a lista.
+1.  Clone ou faça o download deste repositório.
+2.  Abra o arquivo `index.html` no seu navegador web preferido.
+3.  Insira uma palavra ou frase no campo de texto.
+4.  Clique no botão "Add" para adicionar a entrada à lista.
+5.  Para verificar se uma entrada é um palíndromo individualmente, clique no botão com o ícone de "check" ao lado da entrada.
+6.  Para verificar todas as entradas de uma vez, clique no botão "Check All".
+7.  Para remover uma entrada individualmente, clique no botão com o ícone de "lixeira" ao lado da entrada.
+8.  Para remover todas as entradas da lista, clique no botão "Remove All".
 
 ## Estrutura de Arquivos
 
 .  
-├── index.html (A estrutura HTML da página)  
-├── style.css (Os estilos CSS para a apresentação da página)  
-└── script.js (A lógica JavaScript para a interatividade)
+├── index.html # Arquivo HTML principal  
+├── style.css # Arquivo CSS com estilos personalizados  
+└── script.js # Arquivo JavaScript com a lógica da aplicação
 
-## Funcionalidades
+<!-- ## Melhorias Futuras
 
-- **Adicionar palavras/frases:** Permite adicionar palavras ou frases para serem verificadas.
-- **Listagem dos itens:** Exibe uma lista dos itens adicionados.
-- **Verificação individual:** _(Implementado)_ Permite verificar se um item específico na lista é um palíndromo.
-- **Verificação de todos os itens:** Permite verificar todos os itens da lista simultaneamente.
-- **Remoção individual:** Permite remover itens específicos da lista.
-- **Remoção de todos os itens:** Permite limpar toda a lista.
-- **Persistência local:** A lista de itens é armazenada localmente no navegador, mantendo os dados mesmo após o fechamento da página.
-- **Feedback visual:** Indica claramente na lista se um item é ou não um palíndromo usando cores e estilos.
+* Implementar validação adicional para evitar a adição de entradas vazias ou com muitos espaços.
+* Melhorar o feedback visual para as ações do usuário.
+* Otimizar a lógica de remoção do último item da lista para evitar recarregamentos desnecessários.
+* Considerar a implementação de testes unitários para o código JavaScript.
+* Aprimorar a acessibilidade da aplicação. -->
 
-<!-- ## Próximos Passos (Com base no código parcial)
+## Autor
 
-- **Implementar testes unitários:** Adicionar testes automatizados para garantir a robustez das funções de verificação de palíndromos.
-- **Melhorar a interface do usuário:** Considerar melhorias visuais e de usabilidade.
-- **Adicionar tratamento de erros:** Implementar mensagens de erro mais informativas para diferentes cenários.
+Fernando G. Damasceno  
+(fgdamasceno)
 
-## Contribuição
+<!-- ## Licença
 
-Contribuições são bem-vindas! Se você tiver alguma sugestão de melhoria, correção de bugs ou novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+Este projeto está sob a licença [Especificar a Licença, se houver]. -->
 
-1.  Faça um fork do repositório.
-2.  Crie uma branch para sua feature (`git checkout -b feat/sua-feature`).
-3.  Faça o commit das suas mudanças (`git commit -m 'feat: Add some feature'`).
-4.  Faça o push para a branch (`git push origin feat/sua-feature`).
-5.  Abra um pull request.
-
-## Licença
-
-Este projeto está sob a licença [INSERIR LICENÇA AQUI] - veja o arquivo [LICENSE.md](LICENSE.md) para detalhes.
-
----
-
-Sinta-se à vontade para adicionar mais informações ou ajustar este README conforme o desenvolvimento do seu projeto avança. Incluir uma captura de tela na seção de "Demonstração" tornará o README ainda mais profissional e fácil de entender. -->
+![Captura de tela do Palindrome Checker](./screenshots/iPhone-12-PRO.png)
+![Captura de tela do Palindrome Checker](./screenshots/Macbook-Air.png)
