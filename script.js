@@ -15,6 +15,7 @@ const removeAllBtn = document.querySelector("#removeAll");
 // Hide the 'Check All' and 'Remove All' buttons
 actionBtns.classList.add("hidden");
 
+// Swap between dark and light mode
 function darkLightMode() {
   darkLightButton.addEventListener("click", () => {
     htmlEl.setAttribute(
@@ -28,6 +29,7 @@ function darkLightMode() {
   });
 }
 
+// Reset language to original (english)
 function resetLang() {
   htmlEl.setAttribute("lang", "en");
   langSwapBtn.textContent = "PT";
@@ -38,6 +40,7 @@ function resetLang() {
   removeAllBtn.innerHTML = '<i class="bi bi-trash3"></i> Remove All';
 }
 
+// Swap languages between Portuguese and English
 function swapLanguage() {
   langSwapBtn.addEventListener("click", () => {
     if (htmlEl.getAttribute("lang") === "en") {
@@ -56,6 +59,7 @@ function swapLanguage() {
   return;
 }
 
+// Add inputs to localStorage
 function addString() {
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
   if (inputStr.value !== "") {
@@ -68,6 +72,7 @@ function addString() {
   inputStr.value = "";
 }
 
+// Display the inputs on the screen
 function displayStrings() {
   listItems.innerHTML = "";
   let strings = JSON.parse(localStorage.getItem("strings")) || [];
@@ -110,11 +115,13 @@ function displayStrings() {
   }
 }
 
+// Remove all inputs from the localStorage
 function removeAllStrings() {
   localStorage.clear();
-  location.reload();
+  location.reload(); // FIX THIS LATER
 }
 
+// Remove inputs based on their index in the localStorage
 function removeString(index) {
   let strings = JSON.parse(localStorage.getItem("strings"));
   strings.splice(index, 1);
@@ -126,6 +133,7 @@ function removeString(index) {
   }
 }
 
+// Verify if all strings are palindrome or not
 function verifyAllStrings() {
   let strings = JSON.parse(localStorage.getItem("strings"));
   let spanEl = document.getElementsByTagName("span");
@@ -138,6 +146,7 @@ function verifyAllStrings() {
   });
 }
 
+// Verify if a string is a palindrome or not
 function verifyString(index) {
   let strings = JSON.parse(localStorage.getItem("strings"));
   let spanEl = document.getElementsByTagName("span");
@@ -148,16 +157,19 @@ function verifyString(index) {
   }
 }
 
+// Clean the input leaving only letters and numbers if any
 function cleanString(str) {
   const regex =
     /[\s|,.;/\/<>:?[\]{}'"!@#$%&*()/\-_–=+\u00C2\u00EA\u00EE\u00F4\u00FB]/g;
   return str.trim().replace(regex, "").toLowerCase();
 }
 
+// Reverse the input characters order
 function reverseString(str) {
   return cleanString(str).split("").reverse().join("");
 }
 
+// Check for palindromes
 function checkPalindrome(str) {
   let cleanStr = cleanString(str);
   let reverseStr = reverseString(str);
