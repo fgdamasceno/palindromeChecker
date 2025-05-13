@@ -160,7 +160,12 @@ function verifyString(index) {
 // Clean the input leaving only letters and numbers if any
 function cleanString(str) {
   const regex = /[^a-zA-Z0-9]/g;
-  return str.trim().replace(regex, "").toLowerCase();
+  return str
+    .normalize("NFD") // Decomposes accented characters into base + mark
+    .replace(/[\u0300-\u036f]/g, "") // Removes accent marks
+    .trim()
+    .replace(regex, "")
+    .toLowerCase();
 }
 
 // Reverse the input characters order
