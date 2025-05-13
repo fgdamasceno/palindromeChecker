@@ -112,13 +112,5 @@ To run this project locally, follow these steps:
     - Click the "Remove All" button to clear the entire list.
 4.  Use the buttons in the top right corner to toggle between light/dark mode and English/Portuguese languages.
 
-### 🤝 Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please feel free to fork the repository and submit a pull request.
-
-### 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ![Testing](./screenshots/Macbook-Air.png)
 ![Testing](./screenshots/iPhone-12-PRO.png)
