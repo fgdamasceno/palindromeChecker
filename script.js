@@ -118,7 +118,8 @@ function displayStrings() {
 // Remove all inputs from the localStorage
 function removeAllStrings() {
   localStorage.clear();
-  location.reload(); // FIX THIS LATER
+  displayStrings();
+  actionBtns.classList.add("hidden");
 }
 
 // Remove inputs based on their index in the localStorage
@@ -128,8 +129,7 @@ function removeString(index) {
   localStorage.setItem("strings", JSON.stringify(strings));
   displayStrings();
   if (strings.length < 1) {
-    actionBtns.classList.remove("hidden");
-    location.reload();
+    actionBtns.classList.add("hidden");
   }
 }
 
@@ -159,8 +159,7 @@ function verifyString(index) {
 
 // Clean the input leaving only letters and numbers if any
 function cleanString(str) {
-  const regex =
-    /[\s|,.;/\/<>:?[\]{}'"!@#$%&*()/\-_–=+\u00C2\u00EA\u00EE\u00F4\u00FB]/g;
+  const regex = /[^a-zA-Z0-9]/g;
   return str.trim().replace(regex, "").toLowerCase();
 }
 
